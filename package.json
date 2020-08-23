@@ -1,0 +1,64 @@
+{
+  "name": "@eulores/vite-plugin-imba",
+  "version": "0.0.0",
+  "description": "Compile Imba source code with Vite",
+  "author": "eulores <eulores@gmail.com>",
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "pika build",
+    "deploy": "pika publish",
+    "version": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eulores/vite-plugin-imba.git"
+  },
+  "keywords": [
+    "imba",
+    "vite",
+    "vite-plugin"
+  ],
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "pika-plugin-package.json",
+        {
+          "-devDependencies": {},
+          "*author": "^"
+        }
+      ],
+      [
+        "@pika/plugin-build-node",
+        {
+          "minNodeVersion": "10",
+          "sourcemap": false
+        }
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.9.2",
+    "@pika/plugin-build-types": "^0.9.2",
+    "@pika/plugin-standard-pkg": "^0.9.2",
+    "np": "^6.4.0",
+    "pika-plugin-package.json": "^1.0.2",
+    "typescript": "^3.9.7"
+  },
+  "bugs": {
+    "url": "https://github.com/eulores/rollup-plugin-imba/issues"
+  },
+  "homepage": "https://github.com/eulores/rollup-plugin-imba#readme",
+  "dependencies": {
+    "imba": "^2.0.0-alpha.84",
+    "debug": "^4.1.1",
+    "vite": "^1.0.0-rc.4"
+  }
+}
