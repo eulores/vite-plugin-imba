@@ -3,7 +3,7 @@ import { compile } from 'imba/dist/compiler.js';
 const debug = require('debug')('imba')
 
 import { join, dirname } from 'path';
-const vitePath = require.resolve('vite');
+const vitePath = require.resolve('vite', require.main);
 const resolverPath = join(dirname(vitePath), 'resolver') // Ugly hack! Need to add .imba to the supported extensions for the Resolver, but that array is not exported...
 const { supportedExts } = require(resolverPath)
 if (!supportedExts.includes('.imba')) supportedExts.push('.imba');
@@ -22,7 +22,7 @@ function imbaPlugin(pluginOptions = {}) {
       {
         test: ({ path }) => /\.imba$/.test(path),
         transform: ({ code, path, isBuild, notModified }) => {
-          debug('Transforming Imba code ${path}, cache is ${notModified}');
+          debug(`transform - cache ${notModified} - compiling ${path}`);
           const options = {
             target: 'web',
             format: 'esm',

@@ -10,8 +10,8 @@ Use the [Imba compiler](https://v2.imba.io/) (v2) to build `*.imba` files from s
 mkdir sample
 cd sample
 npm init
-npm --dev add vite
-npm --dev add @eulores/vite-plugin-imba
+npm install -D vite
+npm install -D @eulores/vite-plugin-imba
 ```
 
 #### vite.config.js
@@ -44,7 +44,7 @@ export default {
     <title>Imba project</title>
 </head>
 <body>
-    <script src="./sample.imba"></script>
+    <script type="module" src="./sample.imba"></script>
 </body>
 </html>
 ```
@@ -68,3 +68,14 @@ imba.mount <app-root>
 ### Create a production build in ./dist
 
 `npx vite build`
+
+### HMR not working under Windows? ([issue #735](https://github.com/vitejs/vite/issues/735))
+
+Patch this line in `./node_modules/vite/dist/node/server/serverPluginHtml.js` from
+
+`const importee = resolver.normalizePublicPath(utils_1.cleanUrl(slash_1.default(path_1.default.resolve('/', srcAttr[1] || srcAttr[2]))));`
+
+to
+
+`const importee = resolver.normalizePublicPath(utils_1.cleanUrl(slash_1.default(path_1.default.posix.resolve('/', srcAttr[1] || srcAttr[2]))));`
+
