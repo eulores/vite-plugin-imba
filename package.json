@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-imba",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Compile Imba source code with Vite",
   "author": "eulores <eulores@gmail.com>",
   "license": "MIT",
