@@ -53,9 +53,9 @@
     "typescript": "^3.9.7"
   },
   "bugs": {
-    "url": "https://github.com/eulores/rollup-plugin-imba/issues"
+    "url": "https://github.com/eulores/vite-plugin-imba/issues"
   },
-  "homepage": "https://github.com/eulores/rollup-plugin-imba#readme",
+  "homepage": "https://github.com/eulores/vite-plugin-imba#readme",
   "dependencies": {
     "imba": "^2.0.0-alpha.84",
     "debug": "^4.1.1",

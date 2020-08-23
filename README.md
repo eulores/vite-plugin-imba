@@ -11,7 +11,7 @@ mkdir sample
 cd sample
 npm init
 npm install -D vite
-npm install -D @eulores/vite-plugin-imba
+npm install -D vite-plugin-imba
 ```
 
 #### vite.config.js
@@ -19,7 +19,7 @@ npm install -D @eulores/vite-plugin-imba
 Create or edit `vite.config.js` to add the `vite-plugin-imba` plugin
 
 ```js
-import imbaPlugin from '@eulores/vite-plugin-imba';
+import imbaPlugin from 'vite-plugin-imba';
 
 export default {
   plugins: [imbaPlugin()],
